@@ -1,0 +1,20 @@
+<?php
+
+namespace App\Application\Enrollment\UseCases;
+
+use App\Application\Enrollment\DTOs\CreateEnrollmentDTO;
+use App\Application\Enrollment\DTOs\EnrollmentResponseDTO;
+use App\Application\Enrollment\Services\EnrollmentService;
+
+class CreateEnrollmentUseCase
+{
+    public function __construct(
+        private EnrollmentService $enrollmentService
+    ) {
+    }
+
+    public function execute(CreateEnrollmentDTO $dto): EnrollmentResponseDTO
+    {
+        return $this->enrollmentService->createEnrollment($dto);
+    }
+} 
